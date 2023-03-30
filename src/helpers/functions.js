@@ -32,6 +32,18 @@ export default {
             }
 
         },
+        async apiDelete(endpoint){
+            console.log("this.endp: ",endpoint)
+            try {
+                await axios.delete(endpoint);
+                
+                
+
+            } catch (error) {
+                return error;
+            }
+
+        },
         
         
 

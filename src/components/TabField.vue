@@ -5,19 +5,20 @@
       </template>
       <template v-slot:body>
         <TableBody>
-          <tr v-for="(feild, indexfeild) in listFeilds" :key="indexfeild">
-            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6" >{{feild.id}}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 max-w-xs truncate ..." :title="feild.nom">{{feild.nom}}</td>
+          <tr v-for="(field, indexfield) in listfields" :key="indexfield">
+            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6" >{{field.id}}</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 max-w-xs truncate ..." :title="field.nom">{{field.nom}}</td>
             <td class="whitespace-nowrap py-4 text-sm text-gray-500">
               <div :class="['flex']">
-                <span :class="[feild.etat == '0' ? 'bg-red-500' : feild.etat == '1' ? 'bg-green-500' : 'bg-gray-500','w-2 h-2 rounded-full self-center flex']"></span>
-                <span  v-if="feild.etat == '1'" class="pl-2 self-center">available</span>
+                <span :class="[field.etat == '0' ? 'bg-red-500' : field.etat == '1' ? 'bg-green-500' : 'bg-gray-500','w-2 h-2 rounded-full self-center flex']"></span>
+                <span  v-if="field.etat == '1'" class="pl-2 self-center">available</span>
                 <span  v-else class="pl-2 self-center">unavailable</span>
               </div>
             </td>
             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> 5 </td>
             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> 120 MAD</td>
-              <td class=" py-4 text-sm  max-w-xs text-blue-500 right-0"><button class="">
+              <td class=" py-4 text-sm  max-w-xs text-blue-500 right-0">
+              <button class="" v-on:click="deleteField(field.id)">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-red-500 ">
                  <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z" clip-rule="evenodd" />
               </svg>
@@ -31,10 +32,10 @@
           </td>
 
           </tr>
-          <!-- <tr v-else-if="!loadingfeild && !listFeilds.length">
+          <!-- <tr v-else-if="!loadingfield && !listfields.length">
             <td colspan="6" class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">No Data Found</td>
           </tr>
-          <tr v-else-if="loadingfeild">
+          <tr v-else-if="loadingfield">
             <td colspan="6" class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center"><Loader></Loader></td>
           </tr> -->
 
@@ -56,7 +57,7 @@ import TableBody from "@/src/scalify-ui/table/TableBody.vue";
 import TableFooter from "@/src/scalify-ui/table/TableFooter.vue";
 export default{
 
-    name: "feilds",
+    name: "fields",
     components:{
         TableWrapper,
         TableHeader,
@@ -66,8 +67,8 @@ export default{
 
     data(){
         return {
-          listFeilds: [],
-          //loadingFeilds: false,
+          listfields: [],
+          //loadingfields: false,
           error: false,
           //currentPage:1,
           //isLoadMore:false,
@@ -77,15 +78,15 @@ export default{
 
     methods:{
         async feiledData(){
-          // this.loadingfeild = true;
+          // this.loadingfield = true;
           try {
             console.log("get account");
-            const datafeild = await this.apiGet(`${this.endpoint}/fields/all`);
-            console.log("datafeild: ", datafeild);
-            if (datafeild && datafeild.data) {
-               this.listFeilds = datafeild.data;
+            const datafield = await this.apiGet(`${this.endpoint}/fields/all`);
+            console.log("datafield: ", datafield);
+            if (datafield && datafield.data) {
+               this.listfields = datafield.data;
 
-              //  if (this.listFeilds && this.listFeilds.length < datafeild.data.count) {
+              //  if (this.listfields && this.listfields.length < datafield.data.count) {
               //     this.isLoadMore = true;
               //     this.currentPage = this.currentPage + 1;
               //  }
@@ -94,8 +95,12 @@ export default{
             console.log(error);
           }
 
-          // this.loadingfeild = false;
+          // this.loadingfield = false;
 
+        },
+        deleteField(id){
+          this.apiDelete(`${this.endpoint}/fields/delete/${id}`);
+          this.feiledData();
         },
         
     },
