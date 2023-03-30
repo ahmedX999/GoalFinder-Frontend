@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+
+@layer components {
+
+  /* Global Css */
+  html {
+    @apply text-dark-400 font-inter;
+  }
+  .load{
+    @apply  w-full h-10 mt-5 border-none rounded-lg bg-blue-400 text-transparent
+  }
+  /* Cards */
+  .flat-card{
+    @apply bg-white border rounded-md;
+  }
+  .card{
+    @apply bg-white rounded-md shadow-lg;
+  }
+
+  /* Buttons */
+  .btn-sky{
+    @apply border border-border rounded hover:bg-body px-5 py-2 font-bold hover:outline-none hover:border-sky-500 hover:ring-1 hover:ring-sky-500
+  }
+  .btn-white{
+    @apply justify-center inline-flex items-center border leading-4 font-medium rounded-md text-dark-400 bg-white hover:bg-blue-100 active:bg-blue-200 active:outline-none active:ring-2 active:ring-offset-2 ring-blue-400/80 ;
+  }
+  .btn-light{
+    @apply justify-center inline-flex items-center border-dark-300 leading-4 font-medium rounded-md text-white bg-dark-400 hover:bg-dark-300 active:bg-dark-500 active:outline-none active:ring-2 active:ring-offset-2 ring-blue-400/80 ;
+  }
+  .btn-blue{
+    @apply justify-center inline-flex items-center border border-transparent leading-4 font-medium rounded-md text-white bg-blue-500 hover:bg-blue-500/80 active:bg-blue-600 active:outline-none active:ring-2 active:ring-offset-2 ring-blue-500/80 ;
+  }
+  .btn-light-blue{
+    @apply justify-center inline-flex items-center border border-transparent leading-4 font-medium rounded-md text-blue-500 bg-blue-200 hover:bg-blue-200/80 active:bg-blue-300 active:outline-none active:ring-2 active:ring-offset-2 ring-blue-200/80 ;
+  }
+  .btn-dark{
+    @apply justify-center inline-flex items-center border border-transparent leading-4 font-medium rounded-md text-white bg-dark-500 hover:bg-dark-500/80 active:bg-dark-600 active:outline-none active:ring-2 active:ring-offset-2 ring-dark-500/80 ;
+  }
+  .btn-yellow{
+    @apply justify-center inline-flex items-center border border-transparent leading-4 font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-500/80 active:bg-yellow-600 active:outline-none active:ring-2 active:ring-offset-2 ring-yellow-500/80 ;
+  }
+  .btn-green{
+    @apply justify-center inline-flex items-center border border-transparent leading-4 font-medium rounded-md text-white bg-green-500 hover:bg-green-500/80 active:bg-green-600 active:outline-none active:ring-2 active:ring-offset-2 ring-green-500/80 ;
+  }
+  .btn-red{
+    @apply justify-center inline-flex items-center border border-transparent leading-4 font-medium rounded-md text-white bg-red-500 hover:bg-red-500/80 active:bg-red-600 active:outline-none active:ring-2 active:ring-offset-2 ring-red-500/80 ;
+  }
+
+  .btn-xs{
+    @apply px-2.5 py-1.5 text-xs;
+  }
+  .btn-sm{
+    @apply px-3 py-2 text-sm;
+  }
+  .btn-md{
+    @apply px-4 py-2 text-sm;
+  }
+  .btn-lg{
+    @apply px-4 py-2 text-base;
+  }
+  .btn-xl{
+    @apply px-6 py-3 text-base;
+  }
+
+  /* Disabled */
+  .disabled{
+    @apply pointer-events-none opacity-50;
+  }
+
+}
