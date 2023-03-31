@@ -1,22 +1,22 @@
 <template>
     <TableWrapper>
       <template v-slot:header >
-        <TableHeader :titles="['ID', 'NAME', 'ETAT', 'CAPACITE', 'PRICE', 'ACTIONS']" class="bg-body scrollbar-hide" ></TableHeader>
+        <TableHeader :titles="['ID', 'NAME', 'STATE', 'CAPACITY PER TEAM', 'PRICE PER PLACE', 'ACTIONS']" class="bg-body scrollbar-hide" ></TableHeader>
       </template>
       <template v-slot:body>
         <TableBody>
           <tr v-for="(field, indexfield) in listfields" :key="indexfield">
             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6" >{{field.id}}</td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 max-w-xs truncate ..." :title="field.nom">{{field.nom}}</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 max-w-xs truncate ..." :title="field.nom">{{field.name}}</td>
             <td class="whitespace-nowrap py-4 text-sm text-gray-500">
               <div :class="['flex']">
-                <span :class="[field.etat == '0' ? 'bg-red-500' : field.etat == '1' ? 'bg-green-500' : 'bg-gray-500','w-2 h-2 rounded-full self-center flex']"></span>
-                <span  v-if="field.etat == '1'" class="pl-2 self-center">available</span>
+                <span :class="[field.state == '0' ? 'bg-red-500' : field.etat == '1' ? 'bg-green-500' : 'bg-gray-500','w-2 h-2 rounded-full self-center flex']"></span>
+                <span  v-if="field.state == '1'" class="pl-2 self-center">available</span>
                 <span  v-else class="pl-2 self-center">unavailable</span>
               </div>
             </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> 5 </td>
-            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> 120 MAD</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> {{field.capacity}}</td>
+            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> {{field.price_perslot}}</td>
               <td class=" py-4 text-sm  max-w-xs text-blue-500 right-0">
               <button class="" v-on:click="deleteField(field.id)">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-red-500 ">
@@ -99,8 +99,10 @@ export default{
 
         },
         deleteField(id){
+          if (window.confirm("Are you sure you want to delete this field?")) {
           this.apiDelete(`${this.endpoint}/fields/delete/${id}`);
           this.feiledData();
+        }
         },
         
     },
