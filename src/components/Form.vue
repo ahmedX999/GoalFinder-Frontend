@@ -68,7 +68,7 @@
               <div class="sm:col-span-3">
                 <label for="heure-fin" class="block text-sm font-medium leading-6 text-gray-900">Capacité</label>
                 <div class="mt-2">
-                  <input type="text" name="heure-fin" id="heure-fin" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-border sm:text-sm sm:leading-6" v-model="capacité"/>
+                  <input type="text" name="heure-fin" id="heure-fin" class="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-border sm:text-sm sm:leading-6" v-model="capacity"/>
                 </div>
               </div>
   
@@ -82,7 +82,7 @@
               <div class="sm:col-span-4">
                 <label for="country" class="block text-sm font-medium leading-6 text-gray-900">City</label>
                 <div class="mt-2">
-                  <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-border sm:max-w-xs sm:text-sm sm:leading-6">
+                  <select id="country" name="country" a class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-border sm:max-w-xs sm:text-sm sm:leading-6">
                     <option>Marrakech</option>
                     <option>Agadir</option>
                     <option>Tanger</option>
@@ -95,16 +95,16 @@
               </div>
   
               <div class="col-span-full">
-                <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Street address</label>
+                <label for="State" class="block text-sm font-medium leading-6 text-gray-900">State</label>
                 <div class="mt-2">
-                  <input type="text" name="street-address" id="street-address" autocomplete="street-address" class="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-border sm:text-sm sm:leading-6" v-model="adress" />
+                  <input type="text" name="State" id="State" class="block px-2 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-border sm:text-sm sm:leading-6" v-model="state" />
                 </div>
               </div>
   
               <div class="sm:col-span-2 sm:col-start-1">
                 <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Numero</label>
                 <div class="mt-2">
-                  <input type="text" name="city" id="city" autocomplete="address-level2" class="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-border sm:text-sm sm:leading-6" />
+                  <input type="text" name="city" id="city" class="block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-border sm:text-sm sm:leading-6" />
                 </div>
               </div>
   
@@ -135,10 +135,11 @@
     name: "Form",
     data(){
         return {
+          capacity: 5,
           name: "",
-          capacité: 5,
+          
           price: 0,
-          adress:"",
+          state:"",
           
         }
     },
@@ -146,12 +147,17 @@
         async addField(){
             let result = await axios.post(`${this.endpoint}/fields/save`,{
                 name: this.name,
-                capacilté: this.capacilté,
-                price: this.price,
-                adress: this.adress,
+                capacity: this.capacilty,
+                price_perslot: this.price,
+                state: this.state,
+                capacity: 5,  
+                name: "Terrain 1",
+                price_perslot: 120,
+                state: 1
             }
             
             )
+            console.log("res", result.data);
         }
     }
    
