@@ -23,12 +23,27 @@
                             <span class="pl-5 self-center hidden group-hover:inline">Dashboard </span>
                         </div>
                     </router-link>
+
+                    <router-link to="/mycomplex">
+                        <div class=" hover:bg-orange-50 border-orange-50/0 cursor-pointer border-l-8 hover:rounded-l-lg py-8 flex pl-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-[#113d01] shrink-0">
+                                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                            </svg>
+
+                            <span class="pl-5 self-center hidden group-hover:inline ">My Complex</span>
+                        </div>
+                    </router-link>
+
+
+
+                    
+
                     <router-link to="/fields">
                         <div class=" hover:bg-orange-50 border-orange-50/0 border-l-8 cursor-pointer hover:rounded-l-lg py-8 flex pl-5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-[#113d01] shrink-0">
                                 <path d="M5.566 4.657A4.505 4.505 0 016.75 4.5h10.5c.41 0 .806.055 1.183.157A3 3 0 0015.75 3h-7.5a3 3 0 00-2.684 1.657zM2.25 12a3 3 0 013-3h13.5a3 3 0 013 3v6a3 3 0 01-3 3H5.25a3 3 0 01-3-3v-6zM5.25 7.5c-.41 0-.806.055-1.184.157A3 3 0 016.75 6h10.5a3 3 0 012.683 1.657A4.505 4.505 0 0018.75 7.5H5.25z" />
                             </svg>
-                            <span class="pl-5 self-center hidden group-hover:inline">Terrains</span>
+                            <span class="pl-5 self-center hidden group-hover:inline">My Fields</span>
                         </div>
                     </router-link>
                     <router-link to="/">
@@ -40,15 +55,7 @@
                             <span class="pl-5 self-center hidden group-hover:inline">Accounts</span>
                         </div>
                     </router-link>
-                    <router-link to="/">
-                        <div class=" hover:bg-orange-50 border-orange-50/0 cursor-pointer border-l-8 hover:rounded-l-lg py-8 flex pl-5">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-[#113d01] shrink-0">
-                                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
-                            </svg>
-
-                            <span class="pl-5 self-center hidden group-hover:inline ">Parks</span>
-                        </div>
-                    </router-link>
+                    
                     
                     <router-link to="/">
                         <div class=" hover:bg-orange-50 border-orange-50/0 cursor-pointer border-l-8 hover:rounded-l-lg py-8 flex pl-5">

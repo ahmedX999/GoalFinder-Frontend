@@ -25,6 +25,13 @@ const router = createRouter({
   name: "addFields",
   component: () => import("@/src/superAdmin-views/AddFields.vue"),
 },
+{
+  path: "/mycomplex",
+  name: "mycomplex",
+  component: () => import("@/src/superAdmin-views/MyComplex.vue"),
+}
+
+
 ],
 });
 export default router;

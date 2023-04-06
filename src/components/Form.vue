@@ -144,8 +144,8 @@
         }
     },
     methods:{
-        async addField(){
-            let result = await axios.post(`${this.endpoint}/fields/save`,{
+         addField(){
+            let result = axios.post(`${this.endpoint}/fields/save`,{
                 name: this.name,
                 capacity: this.capacilty,
                 price_perslot: this.price,
