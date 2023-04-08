@@ -21,6 +21,16 @@ const router = createRouter({
         import ("@/src/superAdmin-views/login.vue"),
 },
 {
+  path: "/client",
+  name: "client",
+  meta: { layout: "test" },
+  component: () =>
+      import ("@/src/superAdmin-views/client.vue"),
+},
+
+
+
+{
   path: "/addFields",
   name: "addFields",
   component: () => import("@/src/superAdmin-views/AddFields.vue"),

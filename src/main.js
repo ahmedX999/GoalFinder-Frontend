@@ -1,5 +1,12 @@
 import { createApp, h } from 'vue'
 
+
+import vuetify from './plugins/vuetify'
+
+
+
+
+
 import App from '@/src/App.vue'
 import router from "@/src/router";
 import '@/src/assets/tailwind.css'
@@ -28,4 +35,5 @@ app.directive('click-away', {
 app.mixin(functions);
 app.use(createPinia());
 app.use(router);
+app.use(vuetify);
 app.mount('#app')
