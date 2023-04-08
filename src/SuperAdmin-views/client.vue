@@ -1,8 +1,7 @@
 <template>
     
 
-    
-
+  <h1 class="text-center text-6xl font-bold">Complexes List</h1> 
 
 
   <div class="flex flex-wrap">
