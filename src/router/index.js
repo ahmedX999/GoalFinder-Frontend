@@ -27,6 +27,13 @@ const router = createRouter({
   component: () =>
       import ("@/src/superAdmin-views/client.vue"),
 },
+{
+  path: "/Registration",
+  name: "Registration",
+  meta: { layout: "no-sidebar" },
+  component: () =>
+      import ("@/src/superAdmin-views/Registration.vue"),
+},
 
 
 
