@@ -14,6 +14,12 @@ const router = createRouter({
       component: () => import("@/src/superAdmin-views/Fields.vue"),
   },
   {
+    path: "/reservation",
+    name: "reservation",
+    component: () =>
+        import ("@/src/superAdmin-views/Reservations.vue"),
+  },
+  {
     path: "/login",
     name: "login",
     meta: { layout: "no-sidebar" },
