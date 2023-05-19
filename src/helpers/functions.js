@@ -44,6 +44,17 @@ export default {
             }
 
         },
+        async apiPut(endpoint){
+            console.log("this.endp: ",endpoint)
+            try {
+                await axios.put(endpoint);
+
+            } catch (error) {
+                return error;
+            }
+
+        },
+        
         
         
 

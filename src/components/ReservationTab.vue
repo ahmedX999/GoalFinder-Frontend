@@ -29,7 +29,7 @@
                 </svg>
           
             </button>
-              <button class="" v-on:click="goToAddFields()">
+              <button class="" v-on:click="goToAddFields(field.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 ml-5 text-red-500">
                   <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clip-rule="evenodd" />
                 </svg>
@@ -107,15 +107,18 @@ export default{
           // this.loadingfield = false;
 
         },
-        deleteField(id){
+       async deleteField(id){
           window.alert("reservation accepted") 
-          this.apiDelete(`${this.endpoint}/reservations/delete/${id}`);
-          this.reservationData();
+         await this.apiPut(`${this.endpoint}/reservations/etatA/${id}`);
+
+         await this.reservationData();
         
         },
-        goToAddFields(){
+       async goToAddFields(id){
             window.alert("reservation refused");
-
+           await this.apiPut(`${this.endpoint}/reservations/etatR/${id}`);
+           
+           await this.reservationData();
         },
         async goToAll(){
           try {
@@ -123,6 +126,7 @@ export default{
             console.log("get account");
             const datafield2 = await this.apiGet(`${this.endpoint}/reservations/waiting`);
             console.log("datafield: ", datafield2);
+
             if (datafield2 && datafield2.data) {
                this.listfields = datafield2.data;
 
