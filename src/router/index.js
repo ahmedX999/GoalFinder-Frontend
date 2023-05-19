@@ -20,6 +20,12 @@ const router = createRouter({
         import ("@/src/superAdmin-views/Reservations.vue"),
   },
   {
+    path: "/users",
+    name: "users",
+    component: () =>
+        import ("@/src/superAdmin-views/Users.vue"),
+  },
+  {
     path: "/login",
     name: "login",
     meta: { layout: "no-sidebar" },
